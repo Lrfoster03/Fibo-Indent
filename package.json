@@ -15,6 +15,26 @@
       {
         "command": "fibonacci-indent.reindent",
         "title": "Fibo-Format"
+      },
+      {
+        "command": "fibonacci-indent.tab",
+        "title": "Fibonacci Indent Tab"
+      },
+      {
+        "command": "fibonacci-indent.shiftTab",
+        "title": "Fibonacci Indent Shift Tab"
+      }
+    ],
+    "keybindings": [
+      {
+        "command": "fibonacci-indent.tab",
+        "key": "tab",
+        "when": "editorTextFocus"
+      },
+      {
+        "command": "fibonacci-indent.shiftTab",
+        "key": "shift+tab",
+        "when": "editorTextFocus"
       }
     ]
   },
