@@ -28,15 +28,19 @@ export function activate(context: vscode.ExtensionContext) {
         const editor = vscode.window.activeTextEditor;
         if (!editor) { return; }
         const document = editor.document;
-        const fibs = generateFibonacci(document.lineCount);
 
         editor.edit(editBuilder => {
             for (const selection of editor.selections) {
                 const line = document.lineAt(selection.active.line);
-                const indent = ' '.repeat(fibs[line.lineNumber]);
+                const currentIndent = line.firstNonWhitespaceCharacterIndex;
+                const fibs = generateFibonacci(20); // Generate enough numbers
+                
+                // Find next Fibonacci number larger than current indent
+                const nextIndent = fibs.find(n => n > currentIndent) || currentIndent + 1;
+                
                 const text = line.text.trimStart();
                 const range = new vscode.Range(line.range.start, line.range.end);
-                editBuilder.replace(range, indent + text);
+                editBuilder.replace(range, ' '.repeat(nextIndent) + text);
             }
         });
     });
@@ -45,16 +49,19 @@ export function activate(context: vscode.ExtensionContext) {
         const editor = vscode.window.activeTextEditor;
         if (!editor) { return; }
         const document = editor.document;
-        const fibs = generateFibonacci(document.lineCount);
 
         editor.edit(editBuilder => {
             for (const selection of editor.selections) {
                 const line = document.lineAt(selection.active.line);
-                const indent = ' '.repeat(fibs[line.lineNumber - 1] || 0); // Use previous Fibonacci number for shift tab
-                // Remove indentation (set to zero spaces)
+                const currentIndent = line.firstNonWhitespaceCharacterIndex;
+                const fibs = generateFibonacci(20); // Generate enough numbers
+                
+                // Find largest Fibonacci number smaller than current indent
+                const prevIndent = fibs.reverse().find(n => n < currentIndent) || 0;
+                
                 const text = line.text.trimStart();
                 const range = new vscode.Range(line.range.start, line.range.end);
-                editBuilder.replace(range, text);
+                editBuilder.replace(range, ' '.repeat(prevIndent) + text);
             }
         });
     });
