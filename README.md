@@ -1,7 +1,3 @@
-# fibo-indent README
-
-This is the README for your extension "fibo-indent". After writing up a brief description, we recommend including the following sections.
-
 ## Features
 
 Indentation based upon the Fibonacci Sequence, this extension started as a joke based on this tweet: 
