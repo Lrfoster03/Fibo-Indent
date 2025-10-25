@@ -2,7 +2,9 @@
   "name": "fibo-indent",
   "displayName": "Fibo-Indent",
   "description": "Ensure your indentations are up to fibonacci standards",
+  "publisher": "LoganFoster",
   "version": "0.0.1",
+  "icon": "images/image.png",
   "engines": {
     "vscode": "^1.102.0"
   },
