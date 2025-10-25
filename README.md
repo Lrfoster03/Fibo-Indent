@@ -2,7 +2,7 @@
 
 Indentation based upon the Fibonacci Sequence, this extension started as a joke based on this tweet: 
 
-![A screengrab indicating where the start of Fibonacci Indentation began](images/image.png)
+![A screengrab indicating where the start of Fibonacci Indentation began](https://github.com/Lrfoster03/Fibo-Indent/blob/master/images/image.png?raw=true)
 
 Fibo-Indent is a VS Code Extension that automatically indents your code to follow the fibonacci sequence, the most beautiful sequence in mathematics and nature! Simply enable the extension and watch your code take on a new form of elegance.
 
